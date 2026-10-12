@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple real-time chat app built with Express and Socket.IO." />
+  <title>Realtime Chat</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="/client.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="chat-card" aria-label="Realtime chat">
+      <header class="topbar">
+        <div class="brand-icon" aria-hidden="true">✦</div>
+        <div class="brand-copy">
+          <h1>Realtime Chat</h1>
+          <p><span class="online-dot"></span><span id="connection-status">Connecting…</span></p>
+        </div>
+        <div class="online-pill"><span id="online-label">LIVE</span></div>
+      </header>
+
+      <section class="name-panel" id="name-panel">
+        <label for="name-input">Your display name</label>
+        <div class="name-row">
+          <input id="name-input" maxlength="24" autocomplete="nickname" placeholder="e.g. Hirendra" />
+          <button id="join-button" type="button">Join chat</button>
+        </div>
+        <p class="hint">Choose a name before sending your first message.</p>
+      </section>
+
+      <section class="messages" id="messages" aria-live="polite" aria-label="Messages">
+        <div class="welcome" id="welcome">
+          <div class="welcome-icon">✉</div>
+          <h2>Say hello 👋</h2>
+          <p>Messages from connected users appear here instantly.</p>
+        </div>
+      </section>
+
+      <form class="composer" id="message-form">
+        <label class="sr-only" for="message-input">Write a message</label>
+        <input id="message-input" maxlength="1000" placeholder="Type your message…" autocomplete="off" disabled />
+        <button id="send-button" type="submit" aria-label="Send message" disabled>Send <span aria-hidden="true">➤</span></button>
+      </form>
+      <footer class="footer-note">Built with Express.js + Socket.IO <span>•</span> Demo chat</footer>
+    </section>
+  </main>
+</body>
+</html>
